@@ -1,0 +1,64 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://assets/Astran/Astran_Idle Up.tres" type="Texture" id=1]
+[ext_resource path="res://assets/Astran/Astran_Walk Up (1).tres" type="Texture" id=2]
+[ext_resource path="res://assets/Astran/Astran_Walk Down (4).tres" type="Texture" id=3]
+[ext_resource path="res://assets/Astran/Astran_Walk Down (3).tres" type="Texture" id=4]
+[ext_resource path="res://assets/Astran/Astran_Idle Down.tres" type="Texture" id=5]
+[ext_resource path="res://assets/Astran/Astran_Walk Down (1).tres" type="Texture" id=6]
+[ext_resource path="res://assets/Astran/Astran_Walk Up (0).tres" type="Texture" id=7]
+[ext_resource path="res://assets/Astran/Astran_Walk Left (1).tres" type="Texture" id=8]
+[ext_resource path="res://assets/Astran/Astran_Walk Down (2).tres" type="Texture" id=9]
+[ext_resource path="res://assets/Astran/Astran_Walk Up (3).tres" type="Texture" id=10]
+[ext_resource path="res://assets/Astran/Astran_Walk Left (0).tres" type="Texture" id=11]
+[ext_resource path="res://assets/Astran/Astran_Walk Up (4).tres" type="Texture" id=12]
+[ext_resource path="res://assets/Astran/Astran_Idle Left.tres" type="Texture" id=13]
+[ext_resource path="res://Astran.gd" type="Script" id=14]
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 8.0
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "Walk_Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "Idle_Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "Idle_Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 2 ), ExtResource( 10 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "Walk_Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 13 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "Walk_Left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "Idle_Left",
+"speed": 5.0
+} ]
+
+[node name="Astran" type="KinematicBody2D"]
+script = ExtResource( 14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 8.88651 )
+shape = SubResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+animation = "Idle_Down"
+playing = true

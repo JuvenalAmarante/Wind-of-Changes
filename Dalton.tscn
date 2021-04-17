@@ -1,0 +1,72 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://assets/Dalton_Boss/Dalton_Idle Down (0).tres" type="Texture" id=1]
+[ext_resource path="res://assets/Dalton_Boss/Dalton_Idle Left.tres" type="Texture" id=2]
+[ext_resource path="res://assets/Dalton_Boss/Dalton_Idle Down (2).tres" type="Texture" id=3]
+[ext_resource path="res://assets/Dalton_Boss/Dalton_Idle Down (3).tres" type="Texture" id=4]
+[ext_resource path="res://assets/Dalton_Boss/Dalton_Idle Up .tres" type="Texture" id=5]
+[ext_resource path="res://assets/Dalton_Boss/Dalton_Move Power.tres" type="Texture" id=6]
+[ext_resource path="res://assets/Dalton_Boss/Dalton_Walk (2).tres" type="Texture" id=7]
+[ext_resource path="res://assets/Dalton_Boss/Dalton_Walk (3).tres" type="Texture" id=8]
+[ext_resource path="res://assets/Dalton_Boss/Dalton_Walk (0).tres" type="Texture" id=9]
+[ext_resource path="res://assets/Dalton_Boss/Dalton_Walk (1).tres" type="Texture" id=10]
+[ext_resource path="res://assets/Dalton_Boss/Dalton_Walk (4).tres" type="Texture" id=11]
+[ext_resource path="res://assets/Dalton_Boss/Dalton_Walk (5).tres" type="Texture" id=12]
+[ext_resource path="res://assets/Dalton_Boss/Dalton_Idle Down (1).tres" type="Texture" id=13]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "Idle_Down 2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "Idle_Left 2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "Idle Up 2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "Walk Up 2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 11 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "Walk Left 2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "Move_Power",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Animations",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 13 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Walk Down 2",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 13.5456
+height = 33.2618
+
+[node name="Dalton" type="StaticBody2D"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 2, 2 )
+frames = SubResource( 1 )
+animation = "Animations"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
