@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/Village.png" type="Texture" id=1]
+[ext_resource path="res://Astran.tscn" type="PackedScene" id=2]
+
+[sub_resource type="TileSet" id=1]
+0/name = "Village.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 8, 0, 904, 744 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[node name="vila" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 1 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 131083, 3, 0, 131084, 3, 0, 131087, 4, 0, 196623, 4, 0, 262159, 4, 0 )
+
+[node name="Astran" parent="." instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 72.1249, 82.0244 )
+
+[node name="Paredes" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Paredes"]
+visible = false
+polygon = PoolVector2Array( 2.75, 3.46248, 2.7737, 244.708, 13.9159, 244.708, 14.2491, 198.163, 25.4737, 198.023, 31.6472, 204.337, 42.5912, 204.337, 48.6246, 197.041, 48.6246, 204.829, 53.5964, 205.109, 53.5964, 172.066, 100.879, 172.066, 100.879, 205.109, 105.866, 205.39, 105.866, 197.252, 111.759, 204.267, 122.423, 204.27, 127.754, 197.813, 155.063, 197.804, 160.025, 204.047, 170.899, 204.047, 176.898, 197.432, 176.885, 205.682, 181.345, 205.608, 181.358, 197.432, 228.913, 197.432, 228.913, 205.757, 233.224, 205.757, 233.298, 197.432, 239.988, 204.196, 250.053, 204.27, 255.925, 198.027, 299.218, 198.25, 313.414, 213.784, 313.489, 216.608, 316.536, 219.358, 319.509, 219.061, 319.545, 185.269, 322.243, 183.148, 326.108, 185.081, 329.973, 191.473, 332.342, 199.551, 332.203, 230.274, 348.823, 245.396, 2.9234, 244.957, 2.64278, 253.054, 357.24, 253.054, 357.24, 197.432, 299.078, 135.791, 135.007, 135.418, 109.736, 135.121, 101.952, 128.827, 51.5046, 128.716, 51.5046, 118.805, 12.5875, 118.805, 12.3175, 101.632, 37.539, 101.986, 37.4198, 69.8125, 122.745, 69.8125, 122.745, 119.31, 102.843, 119.473, 102.954, 128.605, 134.115, 128.283, 134.381, 3.43193 )
