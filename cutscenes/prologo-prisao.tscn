@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://cenarios/prisao.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Guards.tscn" type="PackedScene" id=2]
+[ext_resource path="res://cutscenes/prologo-prisao.gd" type="Script" id=3]
+[ext_resource path="res://PersonagemPrincipal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/personagem_principal/Astran_Idle Up.tres" type="Texture" id=5]
+[ext_resource path="res://Guards.gd" type="Script" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "cutscene"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/Guards:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 278, 196 ), Vector2( 87.9623, 202.685 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayer/Guards2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.7, 1.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 278.685, 218.593 ), Vector2( 55.4933, 219.962 ), Vector2( 58.9165, 202.846 ) ]
+}
+
+[sub_resource type="GDScript" id=2]
+
+[node name="Cutscene" type="Node"]
+script = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/cutscene = SubResource( 1 )
+
+[node name="prisao" parent="AnimationPlayer" instance=ExtResource( 1 )]
+
+[node name="Astran2" parent="AnimationPlayer" instance=ExtResource( 4 )]
+position = Vector2( 71.9418, 83.0323 )
+scale = Vector2( 0.525, 0.506 )
+
+[node name="Astran_Idle Up" type="Sprite" parent="AnimationPlayer"]
+visible = false
+position = Vector2( 71.6803, 85.0032 )
+texture = ExtResource( 5 )
+
+[node name="Guards" parent="AnimationPlayer" instance=ExtResource( 2 )]
+position = Vector2( 87.9623, 202.685 )
+scale = Vector2( 0.603, 0.601 )
+script = ExtResource( 6 )
+
+[node name="Guards2" parent="AnimationPlayer" instance=ExtResource( 2 )]
+position = Vector2( 58.9165, 202.846 )
+scale = Vector2( 0.603, 0.601 )
+script = SubResource( 2 )
