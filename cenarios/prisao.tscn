@@ -84,6 +84,7 @@ format = 1
 tile_data = PoolIntArray( 0, 1, 0, 131083, 3, 0, 131084, 3, 0, 131087, 4, 0, 196623, 4, 0, 262159, 4, 0 )
 
 [node name="Astran" parent="." instance=ExtResource( 2 )]
+visible = false
 position = Vector2( 72.1249, 82.0244 )
 
 [node name="Paredes" type="StaticBody2D" parent="."]
